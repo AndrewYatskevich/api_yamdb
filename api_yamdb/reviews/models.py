@@ -95,7 +95,7 @@ class GenreTitle(models.Model):
         on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.title}, жанр - {self.genre}'
+        return f'Произведение - {self.title}, жанр - {self.genre}'
 
     class Meta:
         verbose_name = 'Жанр и произведение'
