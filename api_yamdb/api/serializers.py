@@ -4,16 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.tokens import default_token_generator
-
-from rest_framework import serializers
-from api_yamdb.api_yamdb.reviews.models import Category, Genre
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
-from authentication.models import User
-from reviews.models import Comment, Review, Title
+from reviews.models import Comment, Review, Title, Category, Genre
 
 
 class SignUpSerializer(serializers.ModelSerializer):

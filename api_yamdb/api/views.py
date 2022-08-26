@@ -1,33 +1,26 @@
 from authentication.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
-from django.shortcuts import get_object_or_404
-from rest_framework import generics, status, viewsets
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-
-from rest_framework import filters
-from rest_framework import status
-from rest_framework import viewsets
-from rest_framework import generics
+from rest_framework import filters, generics, status, viewsets
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
-
-from reviews.models import Review, Title
-from .mixins import ListCreateDestroyViewSet
 from reviews.models import Category, Genre, Review, Title, User
-from .serializers import *
-from .filters import TitlesFilter
 
+from .filters import TitlesFilter
+from .mixins import ListCreateDestroyViewSet
 from .permissions import IsSuperUserOrAdmin
-from .serializers import (CommentSerializer, ReviewSerializer,
-                          SignUpSerializer, UserDetailSerializer,
-                          UserSerializer, YaMDbTokenObtainPairSerializer)
+from .serializers import (CategorySerializer, CommentSerializer,
+                          GenreSerializer, ReadOnlyTitleSerializer,
+                          ReviewSerializer, SignUpSerializer, TitleSerializer,
+                          UserDetailSerializer, UserSerializer,
+                          YaMDbTokenObtainPairSerializer)
 
 
 class SignUpAPI(APIView):

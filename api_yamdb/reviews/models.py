@@ -3,7 +3,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 from .validators import validate_year
-from authentication.models import User
 
 
 class Category(models.Model):
@@ -115,7 +114,7 @@ class Review(models.Model):
     text = models.TextField(
         verbose_name='Текст',
     )
-    rate = models.PositiveSmallIntegerField(
+    score = models.PositiveSmallIntegerField(
         verbose_name='Рейтинг',
         validators=[
             MinValueValidator(1, 'Оценка не может быть ниже 1'),
