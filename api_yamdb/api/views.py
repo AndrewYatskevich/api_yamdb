@@ -120,6 +120,7 @@ class CategoryViewSet(ListCreateDestroyViewSet):
 
 class GenreViewSet(ListCreateDestroyViewSet):
     queryset = Genre.objects.all()
+    permission_classes = [IsSuperUserOrAdmin]
     serializer_class = GenreSerializer
     filter_backends = (SearchFilter,)
     search_fields = ("name",)
