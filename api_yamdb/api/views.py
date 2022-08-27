@@ -86,7 +86,7 @@ class CategoryViewSet(ListCreateDestroyViewSet):
     permission_classes = [IsAdminOrReadOnly, ]
     serializer_class = CategorySerializer
     filter_backends = (SearchFilter,)
-    serach_fields = ('=name',)
+    search_fields = ('=name',)
     lookup_field = 'slug'
 
 
