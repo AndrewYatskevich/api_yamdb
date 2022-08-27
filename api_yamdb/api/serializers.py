@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from reviews.models import Comment, Review, Title, Category, Genre
+from reviews.models import Comment, Title, Category, Genre, Review
 
 
 class SignUpSerializer(serializers.ModelSerializer):
@@ -68,8 +68,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         title = get_object_or_404(Title, pk=title_id)
         if request.method == 'POST':
             if Review.objects.filter(title=title, author=author).exists():
-                raise ValidationError('Вы не можете добавить более'
-                                      'одного отзыва на произведение')
+                raise ValidationError('Нельзя оставлять более одного отзыва')
         return data
 
     class Meta:
