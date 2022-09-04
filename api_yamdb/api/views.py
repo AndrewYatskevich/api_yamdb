@@ -1,4 +1,5 @@
 from authentication.models import User
+from django.conf import settings
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -32,7 +33,7 @@ class SignUpAPI(APIView):
             send_mail(
                 'Код доступа',
                 f'Ваш код доступа: {default_token_generator.make_token(user)}',
-                'from@api_yamdb.com',
+                settings.YAMDB_EMAIL,
                 [serializer.validated_data.get('email')],
                 fail_silently=False,
             )

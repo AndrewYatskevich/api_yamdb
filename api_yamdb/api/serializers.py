@@ -13,7 +13,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         fields = ('username', 'email')
 
     def validate_username(self, value):
-        if value == 'me':
+        if value.lower() == 'me':
             raise serializers.ValidationError('Недопустимый username "me"')
         return value
 
