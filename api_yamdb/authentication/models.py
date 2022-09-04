@@ -39,4 +39,4 @@ class User(AbstractUser):
         return self.username
 
     class Meta:
-        ordering = ['id']
+        ordering = ('id')
