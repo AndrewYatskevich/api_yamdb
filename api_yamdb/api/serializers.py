@@ -13,7 +13,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         fields = ('username', 'email')
 
     def validate_username(self, value):
-        if value == 'me':
+        if value.lower() == 'me':
             raise serializers.ValidationError('Недопустимый username "me"')
         return value
 
@@ -73,7 +73,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ('id', 'title', 'text', 'score', 'author', 'pub_date',)
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -88,7 +88,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('id', 'review', 'text', 'author', 'pub_date',)
 
 
 class CategorySerializer(serializers.ModelSerializer):
