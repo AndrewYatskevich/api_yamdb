@@ -31,7 +31,6 @@ class Genre(models.Model):
     )
     slug = models.SlugField(
         verbose_name='Идентификатор',
-        max_length=50,
         unique=True
     )
 
@@ -51,7 +50,7 @@ class Title(models.Model):
     )
     year = models.IntegerField(
         verbose_name='Дата выхода',
-        validators=[validate_year]
+        validators=(validate_year,)
     )
     description = models.TextField(
         verbose_name='Описание',
