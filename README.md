@@ -56,5 +56,3 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
-
-Автор: Андрей Яцкевич https://github.com/AndrewYatskevich
